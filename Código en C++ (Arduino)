@@ -1,0 +1,66 @@
+// Definimos los pines de los LDRs
+int LDR1 = A0;
+int LDR2 = A1;
+int LDR3 = A2;
+
+// Definimos los pines de los LEDs
+int LED1 = 2;
+int LED2 = 3;
+int LED3 = 4;
+int LED4 = 5;
+int LED5 = 6;
+int LED6 = 7;
+
+// Creamos una variable para almacenar el valor de los LDRs
+int valorLDR1;
+int valorLDR2;
+int valorLDR3;
+
+int threshold1 = 500;
+
+void setup() {
+  // Inicializamos los pines de los LDRs como entradas
+  pinMode(LDR1, INPUT);
+  pinMode(LDR2, INPUT);
+  pinMode(LDR3, INPUT);
+
+  // Inicializamos los pines de los LEDs como salidas
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+  pinMode(LED4, OUTPUT);
+  pinMode(LED5, OUTPUT);
+  pinMode(LED6, OUTPUT);
+}
+
+void loop() {
+  // Leemos el valor del LDR1 y encendemos el LED1 si es menor a 1.5V, o el LED2 si es mayor
+  valorLDR1 = analogRead(LDR1);
+  if (valorLDR1 < threshold1) {
+    digitalWrite(LED1, HIGH);
+    digitalWrite(LED2, LOW);
+  } else {
+    digitalWrite(LED1, LOW);
+    digitalWrite(LED2, HIGH);
+  }
+
+  // Leemos el valor del LDR2 y encendemos el LED3 si es menor a 1.5V, o el LED4 si es mayor
+  valorLDR2 = analogRead(LDR2);
+  if (valorLDR2 < threshold1) {
+    digitalWrite(LED3, HIGH);
+    digitalWrite(LED4, LOW);
+  } else {
+    digitalWrite(LED3, LOW);
+    digitalWrite(LED4, HIGH);
+  }
+
+  // Leemos el valor del LDR3 y encendemos el LED5 si es menor a 1.5V, o el LED6 si es mayor
+  valorLDR3 = analogRead(LDR3);
+  if (valorLDR3 < threshold1) {
+    digitalWrite(LED5, HIGH);
+    digitalWrite(LED6, LOW);
+  } else {
+    digitalWrite(LED5, LOW);
+    digitalWrite(LED6, HIGH);
+  }
+}
